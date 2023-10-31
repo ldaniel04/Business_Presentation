@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Business_Card</string>
+    <string name="name">Daniel Cedeño</string>
+    <string name="occupation">Software Development Engineer</string>
+    <string name="company_name">CGI COMPANY</string>
+    <string name="contact">Contacto</string>
+    <string name="direction">Direccion</string>
+    <string name="google_maps_url"><![CDATA[https://www.google.com/maps/place/C.+de+San+Gerardo,+20,+28035+Madrid/@40.4682833,-3.7243081,17z/data=!3m1!4b1!4m6!3m5!1s0xd4229b8cb49769f:0x19dd66faad145eb4!8m2!3d40.4682792!4d-3.7217332!16s%2Fg%2F11b8v87nn!?authuser=0&entry=ttu]]></string>
+    <string name="email_address">Correo Electronico</string>
+    <string name="twitter_url">https://twitter.com/DanielC555222</string>
+    <string name="twitter">Twitter</string>
+    <string name="linkedin_url">https://www.linkedin.com/in/daniel-cede%C3%B1o-638a69212/</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="company_button_text">Pinche aquí para conocer más de la empresa</string>
+    <string name="company_url">https://www.cgi.com/en/overview</string>
+    <string name="personal_mail_address">daniellcm2804@gmail.com</string>
+    <string name="personal_phone_number">+34 748602425</string>
 </resources>

@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -71,13 +72,13 @@ fun Card(modifier: Modifier = Modifier) {
 @Composable
 private fun TopColumn(){
     TopColumnStructure(
-        name = "Daniel Cedeño",
-        occupation = "Software Development Engineer",
+        name = stringResource(R.string.name),
+        occupation = stringResource(R.string.occupation),
         button = {
                      CompanyLinkButton()
                      },
         imageId = R.drawable.fotopersonal,
-        company = "CGI COMPANY"
+        company = stringResource(R.string.company_name)
     )
 }
 
@@ -90,22 +91,22 @@ private fun BottomColumn(
 
     Column {
 
-        PhoneCallButton(imageId = R.drawable.icons8_whatsapp_64, textButton = "Contacto")
+        PhoneCallButton(imageId = R.drawable.icons8_whatsapp_64, textButton = stringResource(R.string.contact))
         SocialNetworksButtons(
             imageId = R.drawable.icons8_google_maps_64,
-            textButton = "Direccion",
-            urlSocial = "https://www.google.com/maps/place/C.+de+San+Gerardo,+20,+28035+Madrid/@40.4682833,-3.7243081,17z/data=!3m1!4b1!4m6!3m5!1s0xd4229b8cb49769f:0x19dd66faad145eb4!8m2!3d40.4682792!4d-3.7217332!16s%2Fg%2F11b8v87nn1?authuser=0&entry=ttu"
+            textButton = stringResource(R.string.direction),
+            urlSocial = stringResource(R.string.google_maps_url)
         )
-        EmailButtonLink(imageId = R.drawable.icons8_gmail_64, textButton = "Correo Electronico")
+        EmailButtonLink(imageId = R.drawable.icons8_gmail_64, textButton = stringResource(R.string.email_address))
         SocialNetworksButtons(
             imageId = R.drawable.icons8_twitter_64,
-            urlSocial = "https://twitter.com/DanielC555222",
-            textButton = "Twitter"
+            urlSocial = stringResource(R.string.twitter_url),
+            textButton = stringResource(R.string.twitter)
         )
         SocialNetworksButtons(
             imageId = R.drawable.icons8_linkedin_64,
-            urlSocial = "https://www.linkedin.com/in/daniel-cede%C3%B1o-638a69212/",
-            textButton = "Linkedin"
+            urlSocial = stringResource(R.string.linkedin_url),
+            textButton = stringResource(R.string.linkedin)
         )
     }
 
@@ -170,8 +171,8 @@ private fun TopColumnStructure(
  */
 @Composable
 private fun CompanyLinkButton(
-    textButton: String = "Pinche aquí para conocer más de la empresa",
-    urlCompany: String = "https://www.cgi.com/en/overview"
+    textButton: String = stringResource(R.string.company_button_text),
+    urlCompany: String = stringResource(R.string.company_url)
 ) {
     val context = LocalContext.current
 
@@ -204,10 +205,14 @@ private fun SocialNetworksButtons(
     urlSocial: String,
 
 ) {
+    //AQUI, NO SE SI LO HE ENTENDIDO BIEN, PERO SEGUN CIERTAS FUENTES, CUANDO DESEEMOS HACER UNA ACCION ESPECIFICA COMO EL ABRIR UN ENLACE, HACER CLICK EN UN BOTON, U OTRAS TAREAS 'ESPECIFICAS'
+    //DEBEMOS CREAR UN CONTEXTO PARA LA APP, PORQUE¿? PUES SEGUN TENGO ENTENDIDO, EN MI CASO, SI QUIERO QUE ABRIR 'X' ENLACE, ESTE ENLACE AL SER EXTERNO DEBE RECIBIR CONTEXTO ACTUAL DE LA APP ANDROID
+    //PARA QUE LA ACCION QUE HACE 'INTENT' SE PRODUZCA, ES POR ESTO QUE EN LA VARIABLE 'CONTEXT' ASIGNAMOS EL CONTEXTO ACTUAL DEL LOCAL (EN ESE CASO ESTA APP)
     val context = LocalContext.current
 
     Button(
         onClick = {
+            //LA OPERACION DE ESTE INTENT SERÁ QUE APARTIR DE LA URL, SE NOS INTENTE MOSTRAR/DIRIGIR A LA DIRECCION EN ESTE CASO WEB ESPECIFICADA EN LA VARIABLE urlSocial
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlSocial))
             context.startActivity(intent)
         },
@@ -244,11 +249,12 @@ private fun SocialNetworksButtons(
 fun EmailButtonLink(
     imageId: Int,
     textButton: String,
-    emailAddress: String = "daniellcm2804@gmail.com"
+    emailAddress: String = stringResource(R.string.personal_mail_address)
 ) {
     val context = LocalContext.current
 
     val uri = Uri.parse("mailto:$emailAddress")
+    //LA OPERACION DE ESTE INTENT SERÁ QUE APARTIR DE LA URL, SE NOS INTENTE DIRIGIR A ESCRIBIR UN CORREO A LA DIRECCION ESPECIFICADA EN LA VARIABLE emailAddress
     val intent = Intent(Intent.ACTION_SENDTO, uri)
 
     Button(
@@ -285,11 +291,13 @@ fun EmailButtonLink(
 fun PhoneCallButton(
     imageId: Int,
     textButton: String,
-    phoneNumber: String = "+34 648652495"
+    phoneNumber: String = stringResource(R.string.personal_phone_number)
 ) {
     val context = LocalContext.current
 
     val uri = Uri.parse("tel:$phoneNumber")
+    //LA OPERACION DE ESTE INTENT SERÁ QUE APARTIR DEl NUMERO DADO EN LA VARIABLE phoneNumber, SE NOS INTENTE DIRIGIR AL DIAL DE LA APP DEL SISTEMA TELEFONO Y ESTE SE ESCRIBIR SOLO EN EL CAMPO NUMERICO DEL DIAL PARA QUE SE
+    //PUEDA AGREGAR EL NUMERO O LLAMAR DIRECTAMENTE
     val intent = Intent(Intent.ACTION_DIAL, uri)
 
     Button(
