@@ -59,20 +59,9 @@ fun Card(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(Color(212, 245, 255))
     ) {
-        Column (
-            verticalArrangement = Arrangement.Center,
-            modifier = modifier
-                .weight(1f)
-        ){
-            TopColumn()
-        }
-        Column (
-            verticalArrangement = Arrangement.Center,
-            modifier = modifier
-                .weight(1f)
-        ){
-            BottomColumn()
-        }
+
+        TopColumn()
+        BottomColumn()
     }
 }
 
@@ -334,7 +323,7 @@ fun PhoneCallButton(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun CardPreview() {
     Business_CardTheme {
         Card()
     }
