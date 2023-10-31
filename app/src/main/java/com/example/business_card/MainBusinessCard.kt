@@ -159,7 +159,6 @@ private fun TopColumnStructure(
             fontWeight = FontWeight.Bold,
             modifier = modifier
                 .align(Alignment.CenterHorizontally)
-               // .padding(20.dp)
         )
         button()
 
@@ -185,12 +184,10 @@ private fun CompanyLinkButton(
             .fillMaxWidth()
             .clickable { }
             .padding(20.dp)
-        //colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
     ) {
         Text(
             text = textButton,
             fontWeight = FontWeight.Bold,
-           // style = TextStyle(color = Color.Black),
             modifier = Modifier
                 .align(Alignment.CenterVertically)
         )
